@@ -1,0 +1,50 @@
+#How can I categorize all the shows I have in my library without hassle?
+#Mr. Creator: Julio Santamaria
+#Creation Date: 2/5/21
+
+#Greeting
+name = input("Hello Creator! What is your name? ")
+print(name + "..." , end= "\n" "That's a nice name!")
+print(sep= " ")
+print("This program is to categorize the shows of my Creator.")
+print("It also calculates average watch times per show!")
+#Show Input1
+show1 = input("Please enter first show: ")
+
+#Show Average Watch Time 1
+runTime1 = int(input("Average Episode Run Time in Minutes: "))
+numberEp1 = int(input("Amount of Episodes in a Season: "))
+numberSeasons1 = int(input("How Many Seasons: "))
+
+    #wt=Watch Time (minutes)
+    #WT=Watch Time (hours)
+full_show_wt1 = runTime1 * numberEp1 * numberSeasons1
+#Calculating total minutes
+full_show_WT1 = full_show_wt1 // 60
+#Calculating minutes to hours
+print("Full show watch time is about", full_show_WT1 , "hours!")
+
+#Show Input2
+show2 = input("Please enter second show: ")
+
+#Show Average Watch Time 2 (minutes to hours)
+runTime2 = int(input("Average Episode Run Time in Minutes: "))
+numberEp2 = int(input("Amount of Episodes in a Season: "))
+numberSeasons2 = int(input("How Many Seasons: "))
+
+    #wt=Watch Time (minutes)
+    #WT=Watch Time (hours)
+full_show_wt2 = runTime2 * numberEp2 * numberSeasons2
+full_show_WT2 = full_show_wt2 // 60
+print("Full show watch time is about", full_show_WT2 , "hours!")
+
+#Show Output (Ordered)
+if show1 < show2: print(show1 , show2)
+if show1 > show2: print(show2 , show1)
+
+#How do you show priority to certain variables?
+#Could you use a loop to make input process unlimited and less tedious?
+#Multiple sorting methods?
+#Topic used: print, variables, if statement, and input
+#Inpiration for question accredited to Jordan McDonald (COP 1500)
+#Production started on 2/5/21
