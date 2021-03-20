@@ -1,50 +1,161 @@
-#How can I categorize all the shows I have in my library without hassle?
-#Mr. Creator: Julio Santamaria
-#Creation Date: 2/5/21
+# Program Created by: Julio Santamaria
+# Takes shows inputted by the user and lists them.
+# Also gives the full show times and includes a basic calculator for the user.
 
-#Greeting
-name = input("Hello Creator! What is your name? ")
-print(name + "..." , end= "\n" "That's a nice name!")
-print(sep= " ")
-print("This program is to categorize the shows of my Creator.")
-print("It also calculates average watch times per show!")
-#Show Input1
-show1 = input("Please enter first show: ")
 
-#Show Average Watch Time 1
-runTime1 = int(input("Average Episode Run Time in Minutes: "))
-numberEp1 = int(input("Amount of Episodes in a Season: "))
-numberSeasons1 = int(input("How Many Seasons: "))
+def main():
 
-    #wt=Watch Time (minutes)
-    #WT=Watch Time (hours)
-full_show_wt1 = runTime1 * numberEp1 * numberSeasons1
-#Calculating total minutes
-full_show_WT1 = full_show_wt1 // 60
-#Calculating minutes to hours
-print("Full show watch time is about", full_show_WT1 , "hours!")
+    program_running_boolean = True
+    user_name_input = input("Hello User! What is your name? ")
+    print(user_name_input + "...", end="\n" "That's a nice name!")
+# '+' operator combines these two strings together without spaces.
+    print(sep=" ")
+    print("This program is to store and list the shows inputted by the User")
+    print("It also has a basic calculator and it calculates the full watch times of each show!")
 
-#Show Input2
-show2 = input("Please enter second show: ")
+    while program_running_boolean:
 
-#Show Average Watch Time 2 (minutes to hours)
-runTime2 = int(input("Average Episode Run Time in Minutes: "))
-numberEp2 = int(input("Amount of Episodes in a Season: "))
-numberSeasons2 = int(input("How Many Seasons: "))
+        print("Enter the integer for what you would like to see: ")
 
-    #wt=Watch Time (minutes)
-    #WT=Watch Time (hours)
-full_show_wt2 = runTime2 * numberEp2 * numberSeasons2
-full_show_WT2 = full_show_wt2 // 60
-print("Full show watch time is about", full_show_WT2 , "hours!")
+        print("1. Show Input List")
 
-#Show Output (Ordered)
-if show1 < show2: print(show1 , show2)
-if show1 > show2: print(show2 , show1)
+        print("2. Full Length of Shows")
 
-#How do you show priority to certain variables?
-#Could you use a loop to make input process unlimited and less tedious?
-#Multiple sorting methods?
-#Topic used: print, variables, if statement, and input
-#Inpiration for question accredited to Jordan McDonald (COP 1500)
-#Production started on 2/5/21
+        print("3. Basic Calculator")
+
+        print("4. Quit Program")
+
+        user_input_main = int(input())
+
+        if user_input_main == 1:
+
+            show_input_list()
+
+        elif user_input_main == 2:
+
+            full_length_calc()
+
+        elif user_input_main == 3:
+
+            basic_calculator()
+
+        elif user_input_main == 4:
+
+            closing_message()
+
+            program_running_boolean = False
+
+        else:
+
+            print("Invalid selection. Try again.")
+
+
+def closing_message():
+    closing_message_running = True
+    input_closing_calc = input("Have You Tried The Basic Calculator? Please Enter 'Yes' or 'No'.")
+    input_closing_length = input("Have You Tried The Full Length Calculator? Please Enter 'Yes' or 'No'.")
+
+    while closing_message_running:
+        if input_closing_calc == "Yes" and input_closing_length == 'Yes':
+
+            print("Thank You! I Hope To See You Again Someday!")
+            closing_message_running = False
+
+        elif input_closing_calc == "No" or input_closing_length == 'No':
+
+            print("Please Consider Trying All of My Features Next Time! I Hope To See You Again!")
+            closing_message_running = not closing_message_running
+            print()
+        else:
+
+            print("Error, Invalid Selection" * 2)
+
+
+def show_input_list():
+    running_list_boolean = True
+    show_user_input_list = []
+
+    while running_list_boolean:
+        user_input_show = input("Please enter show or type 'stop' to see full list: ")
+        if user_input_show != "stop":
+            show_user_input_list.append(user_input_show)
+
+        if user_input_show == "stop":
+            for finalized_show_list in [show_user_input_list]:
+                print(finalized_show_list, end=" ")
+            return finalized_show_list
+
+
+def full_length_calc():
+    full_length_running = True
+    for full_length_show in range(1):
+        episode_length_min = int(input("Enter Average Episode Length in Minutes: "))
+        number_episodes_season = int(input("Enter Number of Episodes Per Season: "))
+        number_of_seasons = int(input("Enter Number of Seasons: "))
+    minutes_full_length = episode_length_min * number_episodes_season * number_of_seasons
+# '*' operation multiplies together the three variables.
+    hours_full_length = minutes_full_length / 60
+# '/' operation divides the variable by 60
+    print("The Average Full Run Time For This Show Is:", hours_full_length, "Hours!")
+    full_length_running = False
+
+
+def basic_calculator():
+    running_calc_boolean = 1
+
+    while running_calc_boolean <= 1:
+        print("Enter an Integer or Enter 'Exit' to exit calculator: ")
+
+        print("1. Addition")
+
+        print("2. Subtraction")
+
+        print("3. Multiplication")
+
+        print("4. Division")
+
+        print("Exit")
+
+        user_operation = int(input())
+
+        if user_operation == 1:
+
+            user_input_calc = int(input("Enter First Integer: "))
+            second_user_input_calc = int(input("Enter Second Integer: "))
+            calc_total_add = user_input_calc + second_user_input_calc
+# '+' operation adds both variable together.
+            print("Your Total is:", calc_total_add)
+
+        elif user_operation == 2:
+
+            user_input_calc = int(input("Enter First Integer: "))
+            second_user_input_calc = int(input("Enter Second Integer: "))
+            calc_total_difference = user_input_calc - second_user_input_calc
+# '-' operation subtracts the variables from each other.
+            print("Your Difference is:", calc_total_difference)
+
+        elif user_operation == 3:
+
+            user_input_calc = int(input("Enter First Integer: "))
+            second_user_input_calc = int(input("Enter Second Integer: "))
+            calc_total_sum = user_input_calc * second_user_input_calc
+            print("Your Sum is:", calc_total_sum)
+
+        elif user_operation == 4:
+
+            user_input_calc = int(input("Enter First Integer: "))
+            second_user_input_calc = int(input("Enter Second Integer: "))
+            calc_total_quotient = user_input_calc / second_user_input_calc
+            print("Your Quotient is:", format(calc_total_quotient, ".3f"))
+
+        elif user_operation == "Exit":
+
+            running_calc_boolean += 1
+# '+=' shortcut is short for running_calc_boolean = running_calc_boolean + 1.
+
+        else:
+
+            print("Invalid selection. Try again.")
+
+
+main()
