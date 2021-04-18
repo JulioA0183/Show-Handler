@@ -1,17 +1,17 @@
-# Program Created by: Julio Santamaria
+# __author__ = "Julio Santamaria"
 # Takes shows inputted by the user and lists them.
 # Also gives the full show times and includes a basic calculator for the user.
 
 
 def main():
-
     program_running_boolean = True
     user_name_input = input("Hello User! What is your name? ")
     print(user_name_input + "...", end="\n" "That's a nice name!")
-# '+' operator combines these two strings together without spaces.
+    # '+' operator combines these two strings together without spaces.
     print(sep=" ")
     print("This program is to store and list the shows inputted by the User")
-    print("It also has a basic calculator and it calculates the full watch times of each show!")
+    print("It also has a basic calculator and it calculates the full watch"
+          " times of each show!")
 
     while program_running_boolean:
 
@@ -41,7 +41,7 @@ def main():
 
         elif user_input_main == 4:
 
-            closing_message()
+            show_closing_message()
 
             program_running_boolean = False
 
@@ -50,12 +50,17 @@ def main():
             print("Invalid selection. Try again.")
 
 
-def closing_message():
+def show_closing_message():
     closing_message_running = True
-    input_closing_calc = input("Have You Tried The Basic Calculator? Please Enter 'Yes' or 'No'.")
-    input_closing_length = input("Have You Tried The Full Length Calculator? Please Enter 'Yes' or 'No'.")
 
     while closing_message_running:
+
+        input_closing_calc = input(
+            "Have You Tried The Basic Calculator? Please Enter 'Yes' or 'No'.")
+        input_closing_length = input(
+            "Have You Tried The Full Length Calculator? Please Enter 'Yes' or"
+            " 'No'.")
+
         if input_closing_calc == "Yes" and input_closing_length == 'Yes':
 
             print("Thank You! I Hope To See You Again Someday!")
@@ -63,12 +68,14 @@ def closing_message():
 
         elif input_closing_calc == "No" or input_closing_length == 'No':
 
-            print("Please Consider Trying All of My Features Next Time! I Hope To See You Again!")
+            print(
+                "Please Consider Trying All of My Features Next Time! I Hope"
+                " To See You Again!")
             closing_message_running = not closing_message_running
             print()
         else:
 
-            print("Error, Invalid Selection" * 2)
+            print("Error, Invalid Selection. " * 2)
 
 
 def show_input_list():
@@ -76,7 +83,8 @@ def show_input_list():
     show_user_input_list = []
 
     while running_list_boolean:
-        user_input_show = input("Please enter show or type 'stop' to see full list: ")
+        user_input_show = input(
+            "Please enter show or type 'stop' to see full list: ")
         if user_input_show != "stop":
             show_user_input_list.append(user_input_show)
 
@@ -87,17 +95,19 @@ def show_input_list():
 
 
 def full_length_calc():
-    full_length_running = True
     for full_length_show in range(1):
-        episode_length_min = int(input("Enter Average Episode Length in Minutes: "))
-        number_episodes_season = int(input("Enter Number of Episodes Per Season: "))
+        episode_length_min = int(
+            input("Enter Average Episode Length in Minutes: "))
+        number_episodes_season = int(
+            input("Enter Number of Episodes Per Season: "))
         number_of_seasons = int(input("Enter Number of Seasons: "))
-    minutes_full_length = episode_length_min * number_episodes_season * number_of_seasons
-# '*' operation multiplies together the three variables.
-    hours_full_length = minutes_full_length / 60
-# '/' operation divides the variable by 60
-    print("The Average Full Run Time For This Show Is:", hours_full_length, "Hours!")
-    full_length_running = False
+        minutes_full_length = \
+            episode_length_min * number_episodes_season * number_of_seasons
+        # '*' operation multiplies together the three variables.
+        hours_full_length = minutes_full_length / 60
+        # '/' operation divides the variable by 60
+        print("The Average Full Run Time For This Show Is:",
+              hours_full_length, "Hours!")
 
 
 def basic_calculator():
@@ -116,32 +126,32 @@ def basic_calculator():
 
         print("Exit")
 
-        user_operation = int(input())
+        user_operation = input()
 
-        if user_operation == 1:
+        if user_operation == "1":
 
             user_input_calc = int(input("Enter First Integer: "))
             second_user_input_calc = int(input("Enter Second Integer: "))
             calc_total_add = user_input_calc + second_user_input_calc
-# '+' operation adds both variable together.
+            # '+' operation adds both variable together.
             print("Your Total is:", calc_total_add)
 
-        elif user_operation == 2:
+        elif user_operation == "2":
 
             user_input_calc = int(input("Enter First Integer: "))
             second_user_input_calc = int(input("Enter Second Integer: "))
             calc_total_difference = user_input_calc - second_user_input_calc
-# '-' operation subtracts the variables from each other.
+            # '-' operation subtracts the variables from each other.
             print("Your Difference is:", calc_total_difference)
 
-        elif user_operation == 3:
+        elif user_operation == "3":
 
             user_input_calc = int(input("Enter First Integer: "))
             second_user_input_calc = int(input("Enter Second Integer: "))
             calc_total_sum = user_input_calc * second_user_input_calc
             print("Your Sum is:", calc_total_sum)
 
-        elif user_operation == 4:
+        elif user_operation == "4":
 
             user_input_calc = int(input("Enter First Integer: "))
             second_user_input_calc = int(input("Enter Second Integer: "))
@@ -151,7 +161,8 @@ def basic_calculator():
         elif user_operation == "Exit":
 
             running_calc_boolean += 1
-# '+=' shortcut is short for running_calc_boolean = running_calc_boolean + 1.
+        # '+=' shortcut is short for running_calc_boolean =
+        # running_calc_ + 1.boolean
 
         else:
 
